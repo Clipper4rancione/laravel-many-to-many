@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('project_id')
                 ->references('id')
                 ->on('projects')
-                ->cascadeOnDelete();
+                ->cascadeOnDelete(); //All'eliminaizone di una tecnologia o di un progetto viene eliminato il record relativo nella tabella ponte
 
             //RELAZIONE CON LE TECNOLOGIE
             //creo la FK per le teconologie
