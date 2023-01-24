@@ -9,7 +9,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Client name</th>
-                        <th scope="col">Summary</th>
+                        <th scope="col">Technologies</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -19,22 +19,20 @@
                             <th>{{ $project->id }}</th>
                             <td>{{ $project->name }} <span class="badge text-bg-info">{{ $project->type->name }}</span></td>
                             <td>{{ $project->client_name }}</td>
-                            <td>{{ $project->summary }}</td>
+                            <td>---</td>
                             <td class="">
                                 <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success"><i
                                         class="fa-solid fa-eye"></i></a>
-                            </td>
-                            <td>
                                 <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-warning"><i
                                         class="fa-solid fa-trash"></i></a>
-                            </td>
-                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <td>
+                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
+                                    class="d-inline-block">
+                                    @csrf
+                                    @method('DELETE')
+
                                     <button class="btn btn-danger"><i class="fa-solid fa-trash" title="delete"></i></button>
-                                </td>
-                            </form>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

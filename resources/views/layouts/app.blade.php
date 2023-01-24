@@ -27,11 +27,11 @@
     <div id="app">
         @include('admin.partials.header')
         <div class="container-fluid main-wrapper">
-            <div class="row h-100">
+            <div class="row w-100 h-100">
                 <div class="col-2 bg-dark h-100">
                     @include('admin.partials.aside')
                 </div>
-                <div class="col-10 h-100">
+                <div class="col-10">
                     <main>
                         @yield('content')
                     </main>
