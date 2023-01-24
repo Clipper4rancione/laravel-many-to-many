@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('project_technology', function (Blueprint $table) {
-            //$table->id();
+
             //In questa tabella pivot:
 
             //RELAZIONE CON I PROGETTI
@@ -28,8 +28,12 @@ return new class extends Migration
 
             //RELAZIONE CON LE TECNOLOGIE
             //creo la FK per le teconologie
+            $table->unsignedBigInteger('technology_id');
             //creo la FK per questa colonna
-            $table->timestamps();
+            $table->foreign('technology_id')
+                ->references('id')
+                ->on('technologies')
+                ->cascadeOnDelete();
         });
     }
 
