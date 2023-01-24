@@ -19,6 +19,21 @@
             <div class="col-7">
                 <div class="text-area">
                     <h2>{{ $project->name }}</h2>
+
+                    {{-- STAMPO IL TIPO DI PROGETTO SOLO SE C'È --}}
+                    @if ($project->type)
+                        <p class="badge text-bg-info">{{ $project->type->name }}</p>
+                    @endif
+
+                    {{-- STAMPO LA TECNOLOGIA USATA SOLO SE C'È --}}
+                    @if ($project->technologies)
+                        <div>
+                            @foreach ($project->technologies as $technology)
+                                <p class="badge text-bg-warning">{{ $technology->name }}</p>
+                            @endforeach
+                        </div>
+                    @endif
+
                     <p><strong>Client Name:</strong> {{ $project->client_name }}</p>
                     <p><strong>Summary:</strong> {{ $project->summary }}</p>
                 </div>

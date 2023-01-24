@@ -19,7 +19,13 @@
                             <th>{{ $project->id }}</th>
                             <td>{{ $project->name }} <span class="badge text-bg-info">{{ $project->type->name }}</span></td>
                             <td>{{ $project->client_name }}</td>
-                            <td>---</td>
+                            <td>
+                                @forelse ($project->technologies as $technology)
+                                    <span class="badge text-bg-warning">{{ $technology->name }}</span>
+                                @empty
+                                    -- NO DATA FOUND --
+                                @endforelse
+                            </td>
                             <td class="">
                                 <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success"><i
                                         class="fa-solid fa-eye"></i></a>
